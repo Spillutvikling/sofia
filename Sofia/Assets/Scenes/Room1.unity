@@ -1329,6 +1329,16 @@ Prefab:
       propertyPath: m_Name
       value: Player1
       objectReference: {fileID: 0}
+    - target: {fileID: 114770621596884080, guid: 5e9e851c0e142814dac026a256ba2ac0,
+        type: 2}
+      propertyPath: m_ShowCustomSorter
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114770621596884080, guid: 5e9e851c0e142814dac026a256ba2ac0,
+        type: 2}
+      propertyPath: m_ShowToolkit
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
   m_IsPrefabParent: 0
@@ -2452,7 +2462,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh17250
+  m_Name: pb_Mesh6480
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -2598,7 +2608,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh17340
+  m_Name: pb_Mesh6558
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -3308,7 +3318,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh17316
+  m_Name: pb_Mesh6534
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -4012,7 +4022,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh17414
+  m_Name: pb_Mesh6650
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -5546,7 +5556,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh17436
+  m_Name: pb_Mesh6672
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -5914,7 +5924,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh17470
+  m_Name: pb_Mesh6694
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
