@@ -12,6 +12,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] private bool m_IsWalking;
         [SerializeField] private float m_WalkSpeed;
         [SerializeField] private float m_RunSpeed;
+        [SerializeField] private float m_SpectralWalkSpeed;
+        [SerializeField] private float m_SpectralRunSpeed;
         [SerializeField] [Range(0f, 1f)] private float m_RunstepLenghten;
         [SerializeField] private float m_JumpSpeed;
         [SerializeField] private float m_StickToGroundForce;
@@ -215,8 +217,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
             // keep track of whether or not the character is walking or running
             m_IsWalking = !Input.GetKey(KeyCode.LeftShift);
 #endif
+            var correctWalkSpeed = SpectralMode.instance.spectralEnabled ? m_SpectralWalkSpeed : m_WalkSpeed;
+            var correctRunSpeed = SpectralMode.instance.spectralEnabled ? m_SpectralRunSpeed : m_RunSpeed;
+
             // set the desired speed to be walking or running
-            speed = m_IsWalking ? m_WalkSpeed : m_RunSpeed;
+            speed = m_IsWalking ? correctWalkSpeed : correctRunSpeed;
             m_Input = new Vector2(horizontal, vertical);
 
             // normalize input if it exceeds 1 in combined length:
