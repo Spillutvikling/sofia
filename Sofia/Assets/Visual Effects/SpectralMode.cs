@@ -8,7 +8,9 @@ public class SpectralMode : MonoBehaviour
     PostProcessVolume m_Volume;
     PostProcessProfile originalProfile;
     Vignette m_Vignette;
+    GameObject[] puzzleObjects;
     public bool spectralEnabled = false;
+
 
     public static SpectralMode instance;
     private void Awake()
@@ -27,6 +29,9 @@ public class SpectralMode : MonoBehaviour
     {
         m_Volume = GetComponent<PostProcessVolume>();
         originalProfile = m_Volume.profile;
+        puzzleObjects = GameObject.FindGameObjectsWithTag("Puzzle");
+
+        SetPuzzleObjectsActive(false);
     }
 
     void Update()
@@ -50,6 +55,16 @@ public class SpectralMode : MonoBehaviour
                 m_Volume.profile.TryGetSettings(out m_Vignette);
                 spectralEnabled = true;
             }
+
+            SetPuzzleObjectsActive(spectralEnabled);
+        }
+    }
+
+    private void SetPuzzleObjectsActive(bool active)
+    {
+        foreach (GameObject go in puzzleObjects)
+        {
+            go.SetActive(active);
         }
     }
 
