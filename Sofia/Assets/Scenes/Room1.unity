@@ -1328,24 +1328,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 23613481743659248, guid: 5e9e851c0e142814dac026a256ba2ac0,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d620b62d6e53893468e3a44bf5101a7d, type: 2}
     - target: {fileID: 100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_Name
       value: Player1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114770621596884080, guid: 5e9e851c0e142814dac026a256ba2ac0,
-        type: 2}
-      propertyPath: m_ShowCustomSorter
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114770621596884080, guid: 5e9e851c0e142814dac026a256ba2ac0,
-        type: 2}
-      propertyPath: m_ShowToolkit
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
@@ -1453,6 +1438,16 @@ Prefab:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114504146520205368, guid: 7fd66f79275a275439db291da48a9e70,
+        type: 2}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114302224670883500, guid: 7fd66f79275a275439db291da48a9e70,
+        type: 2}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114302224670883500, guid: 7fd66f79275a275439db291da48a9e70,
         type: 2}
       propertyPath: m_isInputParsingRequired
       value: 1
@@ -3022,6 +3017,7 @@ GameObject:
   m_Component:
   - component: {fileID: 954474959}
   - component: {fileID: 954474957}
+  - component: {fileID: 954474958}
   m_Layer: 8
   m_Name: Post-process Volume
   m_TagString: Untagged
@@ -3045,6 +3041,19 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   priority: 0
+--- !u!114 &954474958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 954474956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 534a22d415ab34649a7a017501a239e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spectralEffect: {fileID: 11400000, guid: 1e053ae9c4679d449ab42f2e8d41bfd3, type: 2}
+  spectralEnabled: 0
 --- !u!4 &954474959
 Transform:
   m_ObjectHideFlags: 0
