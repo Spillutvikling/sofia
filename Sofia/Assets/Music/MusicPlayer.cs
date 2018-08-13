@@ -28,11 +28,13 @@ public class MusicPlayer : MonoBehaviour
 
     private void Update()
     {
+        /*
         if (!SpectralMode.instance.spectralEnabled && audioSource.isPlaying)
         {
             audioSource.Stop();
             return;
         }
+        */
 
         if (!audioSource.isPlaying)
         {
