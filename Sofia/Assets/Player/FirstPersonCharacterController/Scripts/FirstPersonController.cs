@@ -217,9 +217,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
             // keep track of whether or not the character is walking or running
             m_IsWalking = !Input.GetKey(KeyCode.LeftShift);
 #endif
-            var correctWalkSpeed = SpectralMode.instance.spectralEnabled ? m_SpectralWalkSpeed : m_WalkSpeed;
+            var correctWalkSpeed = GlobalManager.instance.GetLocalPlayer().Spectral ? m_SpectralWalkSpeed : m_WalkSpeed;
 
-            var correctRunSpeed = SpectralMode.instance.spectralEnabled ? m_SpectralRunSpeed : m_RunSpeed;
+            var correctRunSpeed = GlobalManager.instance.GetLocalPlayer().Spectral ? m_SpectralRunSpeed : m_RunSpeed;
 
             // set the desired speed to be walking or running
             speed = m_IsWalking ? correctWalkSpeed : correctRunSpeed;

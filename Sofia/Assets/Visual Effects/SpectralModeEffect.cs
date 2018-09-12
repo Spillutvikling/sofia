@@ -1,18 +1,17 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
-public class SpectralMode : MonoBehaviour
+public class SpectralModeEffect : MonoBehaviour
 {
     public PostProcessProfile spectralEffect;
+    public PostProcessVolume m_Volume;
 
-    PostProcessVolume m_Volume;
     PostProcessProfile originalProfile;
     Vignette m_Vignette;
     GameObject[] puzzleObjects;
-    public bool spectralEnabled = false;
 
-
-    public static SpectralMode instance;
+    public static SpectralModeEffect instance;
     private void Awake()
     {
         if (instance == null)
@@ -27,7 +26,11 @@ public class SpectralMode : MonoBehaviour
 
     void Start()
     {
-        m_Volume = GetComponent<PostProcessVolume>();
+        if (m_Volume == null)
+        {
+            throw new ArgumentException($"{nameof(m_Volume)} is missing.");
+        }
+
         originalProfile = m_Volume.profile;
         puzzleObjects = GameObject.FindGameObjectsWithTag("Puzzle");
 
@@ -42,23 +45,19 @@ public class SpectralMode : MonoBehaviour
 
     private void HandleSpectralToggle()
     {
-        if (Input.GetKeyDown(KeyCode.L))
+        if (!GlobalManager.instance.GetLocalPlayer().Spectral)
         {
-            if (spectralEnabled)
-            {
-                m_Volume.profile = originalProfile;
-                spectralEnabled = false;
-            }
-            else
-            {
-                m_Volume.profile = spectralEffect;
-                m_Volume.profile.TryGetSettings(out m_Vignette);
-                spectralEnabled = true;
-            }
-
-            SetPuzzleObjectsActive(spectralEnabled);
+            m_Volume.profile = originalProfile;
         }
+        else
+        {
+            m_Volume.profile = spectralEffect;
+            m_Volume.profile.TryGetSettings(out m_Vignette);
+        }
+
+        SetPuzzleObjectsActive(GlobalManager.instance.GetLocalPlayer().Spectral);
     }
+
 
     private void SetPuzzleObjectsActive(bool active)
     {
@@ -70,7 +69,7 @@ public class SpectralMode : MonoBehaviour
 
     private void AnimateVignette()
     {
-        if (spectralEnabled)
+        if (GlobalManager.instance.GetLocalPlayer().Spectral)
         {
             var value = (Mathf.Sin(0.7f * Time.realtimeSinceStartup) * 0.04f) + 0.32f;
             m_Vignette.intensity.Override(value);
