@@ -5,11 +5,12 @@ using UnityEngine.Rendering.PostProcessing;
 public class SpectralModeEffect : MonoBehaviour
 {
     public PostProcessProfile spectralEffect;
-    public PostProcessVolume m_Volume;
+    public PostProcessVolume _volume;
 
-    PostProcessProfile originalProfile;
-    Vignette m_Vignette;
-    GameObject[] puzzleObjects;
+    private PostProcessProfile _originalProfile;
+    private Vignette _vignette;
+    private GameObject[] _puzzleObjects;
+    private GameObject[] _onlyNormalPlayersObjects;
 
     public static SpectralModeEffect instance;
     private void Awake()
@@ -26,15 +27,16 @@ public class SpectralModeEffect : MonoBehaviour
 
     void Start()
     {
-        if (m_Volume == null)
+        if (_volume == null)
         {
-            throw new ArgumentException($"{nameof(m_Volume)} is missing.");
+            throw new ArgumentException($"{nameof(_volume)} is missing.");
         }
 
-        originalProfile = m_Volume.profile;
-        puzzleObjects = GameObject.FindGameObjectsWithTag("Puzzle");
+        _originalProfile = _volume.profile;
+        _puzzleObjects = GameObject.FindGameObjectsWithTag("Puzzle");
+        _onlyNormalPlayersObjects = GameObject.FindGameObjectsWithTag("OnlyNormalPlayers");
 
-        SetPuzzleObjectsActive(false);
+        ActivateAndDeactivateObjectsBasedOnSpectral(GlobalManager.instance.GetLocalPlayer()?.Spectral ?? false);
     }
 
     void Update()
@@ -47,21 +49,26 @@ public class SpectralModeEffect : MonoBehaviour
     {
         if (!GlobalManager.instance.GetLocalPlayer().Spectral)
         {
-            m_Volume.profile = originalProfile;
+            _volume.profile = _originalProfile;
         }
         else
         {
-            m_Volume.profile = spectralEffect;
-            m_Volume.profile.TryGetSettings(out m_Vignette);
+            _volume.profile = spectralEffect;
+            _volume.profile.TryGetSettings(out _vignette);
         }
 
-        SetPuzzleObjectsActive(GlobalManager.instance.GetLocalPlayer().Spectral);
+        ActivateAndDeactivateObjectsBasedOnSpectral(GlobalManager.instance.GetLocalPlayer()?.Spectral ?? false);
     }
 
-
-    private void SetPuzzleObjectsActive(bool active)
+    private void ActivateAndDeactivateObjectsBasedOnSpectral(bool spectral)
     {
-        foreach (GameObject go in puzzleObjects)
+        SetGameObjectsActive(spectral, _puzzleObjects);
+        SetGameObjectsActive(!spectral, _onlyNormalPlayersObjects);
+    }
+
+    private void SetGameObjectsActive(bool active, GameObject[] objects)
+    {
+        foreach (GameObject go in objects)
         {
             go.SetActive(active);
         }
@@ -72,7 +79,7 @@ public class SpectralModeEffect : MonoBehaviour
         if (GlobalManager.instance.GetLocalPlayer().Spectral)
         {
             var value = (Mathf.Sin(0.7f * Time.realtimeSinceStartup) * 0.04f) + 0.32f;
-            m_Vignette.intensity.Override(value);
+            _vignette.intensity.Override(value);
         }
     }
 }
