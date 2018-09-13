@@ -14,7 +14,7 @@ public class MenuManager : MonoBehaviour
 
     public void LoadMainMenu()
     {
-        SceneManager.LoadScene(0);
+        CustomNetworkManager.instance.StopOrLeaveGame();
     }
 
     public void ExitGame()

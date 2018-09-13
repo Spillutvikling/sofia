@@ -1,9 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : NetworkBehaviour
 {
+
+    public List<Behaviour> LocalPlayerBehaviors;
+    public GameObject Camera;
+
     public bool Spectral { get; private set; }
     public bool Dev_IsLocalPlayer = true;
 
@@ -12,6 +17,8 @@ public class PlayerController : MonoBehaviour
         if (IsLocalPlayer())
         {
             GlobalManager.instance.RegisterLocalPlayer(this);
+            LocalPlayerBehaviors.ForEach(b => b.enabled = true);
+            Camera.SetActive(true);
         }
     }
 
@@ -22,7 +29,7 @@ public class PlayerController : MonoBehaviour
 
     private bool IsLocalPlayer()
     {
-        return Dev_IsLocalPlayer; // When networkBehaviour, return isLocalPlayer instead.
+        return isLocalPlayer; // When networkBehaviour, return isLocalPlayer instead.
     }
 
     //Only used for development.

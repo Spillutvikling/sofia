@@ -34,13 +34,12 @@ public class GlobalManager : MonoBehaviour
         localPlayer = player;
     }
 
+    /// <summary>
+    /// Not guaranteed to be instantiated when called. 
+    /// Maybe we need to add a warning here in the future and work out the order of how objects are instantiated.
+    /// </summary>
     public PlayerController GetLocalPlayer()
     {
-        if(localPlayer == null)
-        {
-            Debug.LogWarning("GetLocalPlayer called while localPlayer is still null. Might be ok, maybe we wanna avoid it?");
-        }
-
         return localPlayer;
     }
 }

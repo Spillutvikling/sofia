@@ -24,6 +24,8 @@ GameObject:
   - component: {fileID: 54789791470467936}
   - component: {fileID: 82033729305230290}
   - component: {fileID: 114405091918996036}
+  - component: {fileID: 114746306462719006}
+  - component: {fileID: 114517033574014944}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -51,7 +53,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1663689558696428
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,7 +219,7 @@ AudioSource:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1042803234906490}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
@@ -426,7 +428,64 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c927e533ff6b8e4499a2c65c14b5e5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LocalPlayerBehaviors:
+  - {fileID: 114826264151450090}
+  - {fileID: 82033729305230290}
+  Camera: {fileID: 1124263460917222}
   Dev_IsLocalPlayer: 1
+--- !u!114 &114517033574014944
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1042803234906490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 1
+  m_SendInterval: 0.04761905
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
+--- !u!114 &114746306462719006
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1042803234906490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 95
+    i1: 116
+    i2: 93
+    i3: 84
+    i4: 134
+    i5: 150
+    i6: 179
+    i7: 212
+    i8: 153
+    i9: 59
+    i10: 174
+    i11: 127
+    i12: 32
+    i13: 236
+    i14: 124
+    i15: 188
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 1
 --- !u!114 &114812946698171006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -490,7 +549,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1042803234906490}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 05ec5cf00ca181d45a42ba1870e148c3, type: 3}
   m_Name: 
@@ -612,7 +671,7 @@ MonoBehaviour:
   m_LandSound: {fileID: 8300000, guid: 3b09d59f4499d45428baa7a21e954296, type: 3}
 --- !u!114 &114945409151736446
 MonoBehaviour:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 2
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1124263460917222}

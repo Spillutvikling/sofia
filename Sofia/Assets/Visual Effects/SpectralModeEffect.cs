@@ -41,6 +41,9 @@ public class SpectralModeEffect : MonoBehaviour
 
     void Update()
     {
+        if (GlobalManager.instance.GetLocalPlayer() == null) // There might be some initializing time before the local player is ready
+            return;
+
         HandleSpectralToggle();
         AnimateVignette();
     }
