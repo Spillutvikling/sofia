@@ -65,7 +65,7 @@ MonoBehaviour:
   m_AutoCreatePlayer: 1
   m_PlayerSpawnMethod: 0
   m_OfflineScene: MainMenu
-  m_OnlineScene: Room1
+  m_OnlineScene: Room1_blender_assets
   m_SpawnPrefabs:
   - {fileID: 1042803234906490, guid: 5f745d548696b3d4993bae7f20ec7cbc, type: 2}
   m_CustomConfig: 0
@@ -123,4 +123,3 @@ MonoBehaviour:
   matchSize: 4
   isNetworkActive: 0
   matchMaker: {fileID: 0}
-  worldControllerPrefab: {fileID: 0}

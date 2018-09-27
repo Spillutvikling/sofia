@@ -158,4 +158,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spectralEffect: {fileID: 11400000, guid: 1e053ae9c4679d449ab42f2e8d41bfd3, type: 2}
-  m_Volume: {fileID: 114676846617965134}
+  _volume: {fileID: 114676846617965134}
