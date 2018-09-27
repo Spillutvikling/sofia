@@ -1870,7 +1870,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-436894
+  m_Name: pb_Mesh21878
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -2244,9 +2244,10 @@ GameObject:
   - component: {fileID: 561044764}
   - component: {fileID: 561044763}
   - component: {fileID: 561044762}
+  - component: {fileID: 561044766}
   m_Layer: 0
   m_Name: KeyPad
-  m_TagString: OnlyNormalPlayers
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -2614,6 +2615,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 561044760}
   m_Mesh: {fileID: 503069925}
+--- !u!114 &561044766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 561044760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a436416611312474487d383725b715b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  solution:
+    buttons: 010100000001010001
 --- !u!1 &668360339
 GameObject:
   m_ObjectHideFlags: 0
@@ -6225,7 +6239,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-436596
+  m_Name: pb_Mesh19680
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
