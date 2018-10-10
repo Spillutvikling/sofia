@@ -18,20 +18,20 @@ public class KeypadPuzzlePart : PuzzlePartBase
 
         for (int i = 0; i < keyObjects.Length; i++)
         {
-            //keyObjects[i].GetComponent<Interactable>().SetInteractAction(() => ToggleKeyNumber(i+1), "Key " + (i+1));
+            //keyObjects[i].GetComponent<Interactable>().SetInteractAction(() => ToggleKeyNumber(i+1));
             keyObjectMeshRenderers.Add(keyObjects[i].GetComponent<MeshRenderer>());
         }
 
         // TODO: Why the fuck doesnt setting this dynamically in the loop above work? InteractAction on interactables get overriden/point to the same ToggleKeyNumber.
-        keyObjects[0].GetComponent<Interactable>().SetInteractAction(() => ToggleKeyNumber(1), "Key " + (1));
-        keyObjects[1].GetComponent<Interactable>().SetInteractAction(() => ToggleKeyNumber(2), "Key " + (2));
-        keyObjects[2].GetComponent<Interactable>().SetInteractAction(() => ToggleKeyNumber(3), "Key " + (3));
-        keyObjects[3].GetComponent<Interactable>().SetInteractAction(() => ToggleKeyNumber(4), "Key " + (4));
-        keyObjects[4].GetComponent<Interactable>().SetInteractAction(() => ToggleKeyNumber(5), "Key " + (5));
-        keyObjects[5].GetComponent<Interactable>().SetInteractAction(() => ToggleKeyNumber(6), "Key " + (6));
-        keyObjects[6].GetComponent<Interactable>().SetInteractAction(() => ToggleKeyNumber(7), "Key " + (7));
-        keyObjects[7].GetComponent<Interactable>().SetInteractAction(() => ToggleKeyNumber(8), "Key " + (8));
-        keyObjects[8].GetComponent<Interactable>().SetInteractAction(() => ToggleKeyNumber(9), "Key " + (9));
+        keyObjects[0].GetComponent<Interactable>().SetInteractAction(() => ToggleKeyNumber(1));
+        keyObjects[1].GetComponent<Interactable>().SetInteractAction(() => ToggleKeyNumber(2));
+        keyObjects[2].GetComponent<Interactable>().SetInteractAction(() => ToggleKeyNumber(3));
+        keyObjects[3].GetComponent<Interactable>().SetInteractAction(() => ToggleKeyNumber(4));
+        keyObjects[4].GetComponent<Interactable>().SetInteractAction(() => ToggleKeyNumber(5));
+        keyObjects[5].GetComponent<Interactable>().SetInteractAction(() => ToggleKeyNumber(6));
+        keyObjects[6].GetComponent<Interactable>().SetInteractAction(() => ToggleKeyNumber(7));
+        keyObjects[7].GetComponent<Interactable>().SetInteractAction(() => ToggleKeyNumber(8));
+        keyObjects[8].GetComponent<Interactable>().SetInteractAction(() => ToggleKeyNumber(9));
     }
 
     private void Update()

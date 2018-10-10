@@ -2,6 +2,6 @@
 
 internal interface IInteractable
 {
-    void SetInteractAction(Action interactAction, string name);
+    void SetInteractAction(Action interactAction);
     void OnInteract();
 }
