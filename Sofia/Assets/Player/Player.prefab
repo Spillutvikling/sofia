@@ -431,7 +431,7 @@ MonoBehaviour:
   LocalPlayerBehaviors:
   - {fileID: 114826264151450090}
   - {fileID: 82033729305230290}
-  Camera: {fileID: 1124263460917222}
+  CameraGameObject: {fileID: 1124263460917222}
   Dev_IsLocalPlayer: 1
 --- !u!114 &114517033574014944
 MonoBehaviour:

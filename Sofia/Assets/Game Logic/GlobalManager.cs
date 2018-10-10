@@ -38,7 +38,7 @@ public class GlobalManager : MonoBehaviour
     /// Not guaranteed to be instantiated when called. 
     /// Maybe we need to add a warning here in the future and work out the order of how objects are instantiated.
     /// </summary>
-    public PlayerController GetLocalPlayer()
+    public PlayerController GetCachedLocalPlayer()
     {
         return localPlayer;
     }

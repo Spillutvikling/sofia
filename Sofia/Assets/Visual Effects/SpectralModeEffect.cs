@@ -36,12 +36,12 @@ public class SpectralModeEffect : MonoBehaviour
         _puzzleObjects = GameObject.FindGameObjectsWithTag("Puzzle");
         _onlyNormalPlayersObjects = GameObject.FindGameObjectsWithTag("OnlyNormalPlayers");
 
-        ActivateAndDeactivateObjectsBasedOnSpectral(GlobalManager.instance.GetLocalPlayer()?.Spectral ?? false);
+        ActivateAndDeactivateObjectsBasedOnSpectral(GlobalManager.instance.GetCachedLocalPlayer()?.Spectral ?? false);
     }
 
     void Update()
     {
-        if (GlobalManager.instance.GetLocalPlayer() == null) // There might be some initializing time before the local player is ready
+        if (GlobalManager.instance.GetCachedLocalPlayer() == null) // There might be some initializing time before the local player is ready
             return;
 
         HandleSpectralToggle();
@@ -50,7 +50,7 @@ public class SpectralModeEffect : MonoBehaviour
 
     private void HandleSpectralToggle()
     {
-        if (!GlobalManager.instance.GetLocalPlayer().Spectral)
+        if (!GlobalManager.instance.GetCachedLocalPlayer().Spectral)
         {
             _volume.profile = _originalProfile;
         }
@@ -60,7 +60,7 @@ public class SpectralModeEffect : MonoBehaviour
             _volume.profile.TryGetSettings(out _vignette);
         }
 
-        ActivateAndDeactivateObjectsBasedOnSpectral(GlobalManager.instance.GetLocalPlayer()?.Spectral ?? false);
+        ActivateAndDeactivateObjectsBasedOnSpectral(GlobalManager.instance.GetCachedLocalPlayer()?.Spectral ?? false);
     }
 
     private void ActivateAndDeactivateObjectsBasedOnSpectral(bool spectral)
@@ -79,7 +79,7 @@ public class SpectralModeEffect : MonoBehaviour
 
     private void AnimateVignette()
     {
-        if (GlobalManager.instance.GetLocalPlayer().Spectral)
+        if (GlobalManager.instance.GetCachedLocalPlayer().Spectral)
         {
             var value = (Mathf.Sin(0.7f * Time.realtimeSinceStartup) * 0.04f) + 0.32f;
             _vignette.intensity.Override(value);

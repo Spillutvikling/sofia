@@ -118,7 +118,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 m_MoveDir.y = -m_StickToGroundForce;
 
-                if (m_Jump && !GlobalManager.instance.GetLocalPlayer().Spectral)
+                if (m_Jump && !GlobalManager.instance.GetCachedLocalPlayer().Spectral)
                 {
                     m_MoveDir.y = m_JumpSpeed;
                     PlayJumpSound();
@@ -217,9 +217,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
             // keep track of whether or not the character is walking or running
             m_IsWalking = !Input.GetKey(KeyCode.LeftShift);
 #endif
-            var correctWalkSpeed = GlobalManager.instance.GetLocalPlayer().Spectral ? m_SpectralWalkSpeed : m_WalkSpeed;
+            var correctWalkSpeed = GlobalManager.instance.GetCachedLocalPlayer().Spectral ? m_SpectralWalkSpeed : m_WalkSpeed;
 
-            var correctRunSpeed = GlobalManager.instance.GetLocalPlayer().Spectral ? m_SpectralRunSpeed : m_RunSpeed;
+            var correctRunSpeed = GlobalManager.instance.GetCachedLocalPlayer().Spectral ? m_SpectralRunSpeed : m_RunSpeed;
 
             // set the desired speed to be walking or running
             speed = m_IsWalking ? correctWalkSpeed : correctRunSpeed;

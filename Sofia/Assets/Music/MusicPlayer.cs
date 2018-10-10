@@ -28,7 +28,7 @@ public class MusicPlayer : MonoBehaviour
 
     private void Update()
     {
-        if (!GlobalManager.instance.GetLocalPlayer().Spectral && audioSource.isPlaying)
+        if (!GlobalManager.instance.GetCachedLocalPlayer().Spectral && audioSource.isPlaying)
         {
             audioSource.Stop();
             return;
