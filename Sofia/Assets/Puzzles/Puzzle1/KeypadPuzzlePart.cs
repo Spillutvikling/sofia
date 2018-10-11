@@ -18,20 +18,11 @@ public class KeypadPuzzlePart : PuzzlePartBase
 
         for (int i = 0; i < keyObjects.Length; i++)
         {
-            //keyObjects[i].GetComponent<Interactable>().SetInteractAction(() => ToggleKeyNumber(i+1));
+            int keyIndex = i + 1;
+            keyObjects[i].GetComponent<Interactable>().SetInteractAction(() => ToggleKeyNumber(keyIndex));
+
             keyObjectMeshRenderers.Add(keyObjects[i].GetComponent<MeshRenderer>());
         }
-
-        // TODO: Why the fuck doesnt setting this dynamically in the loop above work? InteractAction on interactables get overriden/point to the same ToggleKeyNumber.
-        keyObjects[0].GetComponent<Interactable>().SetInteractAction(() => ToggleKeyNumber(1));
-        keyObjects[1].GetComponent<Interactable>().SetInteractAction(() => ToggleKeyNumber(2));
-        keyObjects[2].GetComponent<Interactable>().SetInteractAction(() => ToggleKeyNumber(3));
-        keyObjects[3].GetComponent<Interactable>().SetInteractAction(() => ToggleKeyNumber(4));
-        keyObjects[4].GetComponent<Interactable>().SetInteractAction(() => ToggleKeyNumber(5));
-        keyObjects[5].GetComponent<Interactable>().SetInteractAction(() => ToggleKeyNumber(6));
-        keyObjects[6].GetComponent<Interactable>().SetInteractAction(() => ToggleKeyNumber(7));
-        keyObjects[7].GetComponent<Interactable>().SetInteractAction(() => ToggleKeyNumber(8));
-        keyObjects[8].GetComponent<Interactable>().SetInteractAction(() => ToggleKeyNumber(9));
     }
 
     private void Update()
@@ -60,11 +51,6 @@ public class KeypadPuzzlePart : PuzzlePartBase
         {
             SelectedKeys.Add(key);
         }
-    }
-
-    public bool IsKeyOn(int key)
-    {
-        return SelectedKeys.Contains(key);
     }
 
     public override bool IsSolved()
