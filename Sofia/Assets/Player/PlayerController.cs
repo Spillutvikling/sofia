@@ -13,7 +13,7 @@ public class PlayerController : NetworkBehaviour
     public bool Dev_IsLocalPlayer = true;
     public bool CanInteract { get; private set; }
 
-    private readonly float interactRangeInMeters = 1f;
+    private readonly float interactRangeInMeters = 1.5f;
     private LayerMask interactableLayerMask;
     private Camera camReference;
 
