@@ -7,7 +7,6 @@ public class Door : MonoBehaviour
 {
     public PuzzlePartBase[] _puzzleParts;
 
-    public GameObject DoorMesh;
     public bool Open { get; private set; }
 
     private Animator animator;

@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
+[RequireComponent(typeof(BoxCollider))]
 public class Interactable : MonoBehaviour, IInteractable
 {
     private Action _interactAction;

@@ -14,7 +14,7 @@ public class KeypadPuzzlePart : PuzzlePartBase
 
     private void Start()
     {
-        keyObjects = transform.Cast<Transform>().Select(x => x.gameObject).ToArray();
+        keyObjects = transform.Cast<Transform>().Where(x => x.GetComponent<Interactable>() != null).Select(x => x.gameObject).ToArray();
 
         for (int i = 0; i < keyObjects.Length; i++)
         {
@@ -29,12 +29,12 @@ public class KeypadPuzzlePart : PuzzlePartBase
     {
         for (int i = 0; i < keyObjects.Length; i++)
         {
-            keyObjectMeshRenderers[i].material.SetColor("_EmissiveColor", Color.red);
+            keyObjectMeshRenderers[i].material.SetColor("_BaseColor", Color.red);
         }
 
         foreach (var selectedKey in SelectedKeys)
         {
-            keyObjectMeshRenderers[selectedKey - 1].material.SetColor("_EmissiveColor", Color.green);
+            keyObjectMeshRenderers[selectedKey - 1].material.SetColor("_BaseColor", Color.green);
         }
     }
 
@@ -55,7 +55,7 @@ public class KeypadPuzzlePart : PuzzlePartBase
 
     public override bool IsSolved()
     {
-        return PuzzlesConfig.Puzzle1.PuzzlePart1_KeypadSolution.All(SelectedKeys.Contains);
+        return PuzzlesConfig.Puzzle1.PuzzlePart1_KeypadSolution.All(SelectedKeys.Contains) && PuzzlesConfig.Puzzle1.PuzzlePart1_KeypadSolution.Count == SelectedKeys.Count;
     }
 }
 
